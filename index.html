@@ -8,6 +8,7 @@
     async function main() {
       await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
       if (!liff.isLoggedIn()) {
+        window.alert("ログインしていません");
         liff.login();
       } else {
         const profile = await liff.getProfile();
