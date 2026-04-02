@@ -12,6 +12,7 @@
         document.getElementById('output').textContent = "ログインしていません";
         liff.login();
       } else {
+        document.getElementById('output').textContent = "ログインしています";
         const profile = await liff.getProfile();
         const userId = profile.userId;
         const displayName = profile.displayName;
@@ -48,5 +49,4 @@
     main();
   </script>
 </head>
-<body>Redirecting to Google Form...</body>
 </html>
