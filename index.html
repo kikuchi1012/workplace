@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
+  <div id="output"></div>
   <script src="https://line-scdn.net"></script>
   <script>
     async function main() {
       await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
       if (!liff.isLoggedIn()) {
-        window.alert("ログインしていません");
+        document.getElementById('output').textContent = "ログインしていません";
         liff.login();
       } else {
         const profile = await liff.getProfile();
