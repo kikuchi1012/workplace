@@ -18,7 +18,7 @@ html
         // URLパラメータから流入元を取得（例: ?from=menuA）
         const urlParams = new URLSearchParams(window.location.search);
         const source = urlParams.get('from') || 'unknown';
-
+        window.alert(displayName);
         let googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url';
 /*
         if (source == '01_A') {         // ボタンA
