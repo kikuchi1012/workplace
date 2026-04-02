@@ -1,0 +1,33 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script src="https://line-scdn.net"></script>
+  <script>
+    async function main() {
+      await liff.init({ liffId: "YOUR_LIFF_ID" }); // 自身のLIFF IDに書き換え
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      } else {
+        const profile = await liff.getProfile();
+        const userId = profile.userId;
+        const displayName = profile.displayName;
+
+        // URLパラメータから流入元を取得（例: ?from=menuA）
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('from') || 'unknown';
+
+        // Googleフォームの事前入力URL
+        // フォーム側で「事前入力したURLを取得」から生成したURLのentry.xxx部分を書き換える
+        const googleFormUrl = `https://google.com{encodeURIComponent(userId)}&entry.222=${encodeURIComponent(displayName)}&entry.333=${encodeURIComponent(source)}`;
+        
+        window.location.href = googleFormUrl;
+      }
+    }
+    main();
+  </script>
+</head>
+<body>Redirecting to Google Form...</body>
+</html>
