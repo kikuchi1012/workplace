@@ -3,26 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
-  <div id="output"></div>
+  <!-- vConsoleの読み込み -->
+  <script src="https://unpkg.com"></script>
+  <script>
+  // VConsoleを初期化
+  var vConsole = new window.VConsole();
+  </script>
   <script src="https://line-scdn.net"></script>
   <script>
-    window.onload = function(){
-	    initVConsole();
-  
-}
-// Initialize vConsole
-function initVConsole() {
-	window.vConsole = new window.VConsole({
-		defaultPlugins: ['system', 'network', 'element', 'storage'],
-		maxLogNumber: 1000,
-		onReady: function() {
-			console.log('vConsole is ready.');
-		},
-		onClearLog: function() {
-			console.log('on clearLog');
-		}
-	});
-}
 
     async function main() {
       await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
