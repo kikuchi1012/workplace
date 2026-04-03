@@ -6,6 +6,24 @@
   <div id="output"></div>
   <script src="https://line-scdn.net"></script>
   <script>
+    window.onload = function(){
+	    initVConsole();
+  
+}
+// Initialize vConsole
+function initVConsole() {
+	window.vConsole = new window.VConsole({
+		defaultPlugins: ['system', 'network', 'element', 'storage'],
+		maxLogNumber: 1000,
+		onReady: function() {
+			console.log('vConsole is ready.');
+		},
+		onClearLog: function() {
+			console.log('on clearLog');
+		}
+	});
+}
+
     async function main() {
       await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
       if (!liff.isLoggedIn()) {
@@ -20,10 +38,11 @@
         // URLパラメータから流入元を取得（例: ?from=menuA）
         const urlParams = new URLSearchParams(window.location.search);
         const source = urlParams.get('from') || 'unknown';
-        window.alert(displayName);
+        console.log(displayName);
         let googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url';
 /*
-        if (source == '01_A') {         // ボタンA
+    
+if (source == '01_A') {         // ボタンA
         // Googleフォームの事前入力URL
         // フォーム側で「事前入力項目」を追加する（entry.xxx部分）
         // 
