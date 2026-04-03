@@ -24,7 +24,7 @@
         let googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url';
 
     
-if (source == '01_A') {         // ボタンA
+        if (source == '01_A') {         // ボタンA
         // Googleフォームの事前入力URL
         // フォーム側で「事前入力項目」を追加する（entry.xxx部分）
         // 
@@ -32,7 +32,6 @@ if (source == '01_A') {         // ボタンA
                          + '&entry.98540952=' + userId
                          + '&entry.821234169=' + displayName
                          + '&entry.1076542200=' + source;
-        }
         }
         if (source == '01_B') {         // ボタンB
         // Googleフォームの事前入力URL
@@ -43,7 +42,7 @@ if (source == '01_A') {         // ボタンA
                         + '&entry.1076542200=' + source;
 
         }
-        
+      }  
         window.location.href = googleFormUrl;
           
       } catch (error) {
