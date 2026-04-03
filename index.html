@@ -27,10 +27,10 @@ function initVConsole() {
     async function main() {
       await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
       if (!liff.isLoggedIn()) {
-        document.getElementById('output').textContent = "ログインしていません";
+        console.log("ログインしていません";
         liff.login();
       } else {
-        document.getElementById('output').textContent = "ログインしています";
+        console.log("ログインしています";
         const profile = await liff.getProfile();
         const userId = profile.userId;
         const displayName = profile.displayName;
