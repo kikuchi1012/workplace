@@ -10,10 +10,11 @@
 
     async function main() {
       try {
-      await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
-      if (!liff.isLoggedIn()) {
-        liff.login();
-      } else {
+        await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
+        if (!liff.isLoggedIn()) {
+          liff.login();
+          return; // ログイン画面へ飛ぶため、ここで処理を止める
+        } else {
         const profile = await liff.getProfile();
         const userId = profile.userId;
         const displayName = profile.displayName;
@@ -49,8 +50,9 @@
         console.error("LIFF Error:", error);
       }
     }
-    window.onload =main();
+    // ページ読み込み完了後に実行
+    window.addEventListener('load', main);
   </script>
-  
+</head> 
   <body>Redirecting to Google Form...</body>
 </html>
