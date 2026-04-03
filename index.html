@@ -38,6 +38,25 @@ function initVConsole() {
   <title>Redirecting...</title>
   <script>
 
+window.onload = function(){
+	initVConsole();
+
+}
+// Initialize vConsole
+function initVConsole() {
+	window.vConsole = new window.VConsole({
+		defaultPlugins: ['system', 'network', 'element', 'storage'],
+		maxLogNumber: 1000,
+		onReady: function() {
+			console.log('vConsole is ready.');
+		},
+		onClearLog: function() {
+			console.log('on clearLog');
+		}
+	});
+}
+
+
     async function main() {
       await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
       if (!liff.isLoggedIn()) {
