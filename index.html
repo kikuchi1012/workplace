@@ -22,7 +22,8 @@
 
         // URLパラメータから流入元を取得（例: ?from=menuA）
         const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('from') || 'unknown';
+//        const source = urlParams.get('from') || 'unknown';
+        const source = urlParams.get('from');
 
     
         if (source == '01_A') {         // ボタンA
