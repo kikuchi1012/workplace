@@ -8,29 +8,27 @@
 	<script src="./lib/vconsole.min.js"></script>
 	<!-- LIFF -->
 	<script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-
+</head>
 <script>
 
   window.onload = function(){
-	  initVConsole();
+	  main();
 
   }
-  // Initialize vConsole
-  function initVConsole() {
-	  window.vConsole = new window.VConsole({
-		  defaultPlugins: ['system', 'network', 'element', 'storage'],
-		  maxLogNumber: 1000,
-		  onReady: function() {
-			  console.log('vConsole is ready.');
-		  },
-		  onClearLog: function() {
-			  console.log('on clearLog');
-		  }
-	  });
-  }
-
-
+  
     async function main() {
+  // Initialize vConsole
+	    window.vConsole = new window.VConsole({
+		    defaultPlugins: ['system', 'network', 'element', 'storage'],
+		    maxLogNumber: 1000,
+		    onReady: function() {
+			    console.log('vConsole is ready.');
+		    },
+		    onClearLog: function() {
+			    console.log('on clearLog');
+		    }
+	    });
+
       await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
       if (!liff.isLoggedIn()) {
         console.log("ログインしていません";
@@ -73,5 +71,5 @@ if (source == '01_A') {         // ボタンA
     }
     main();
   </script>
-</head>
+
 </html>
