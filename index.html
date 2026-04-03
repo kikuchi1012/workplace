@@ -3,39 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-	<!-- vConsole -->
-	<script src="./lib/vconsole.min.js"></script>
-	<!-- LIFF -->
-	<script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-</head>
-<script>
 
-  window.onload = function(){
-	  main();
+  <script>
 
-  }
-  
-//    async function main() {
-     function main() {
-  // Initialize vConsole
-	    window.vConsole = new window.VConsole({
-		    defaultPlugins: ['system', 'network', 'element', 'storage'],
-		    maxLogNumber: 1000,
-		    onReady: function() {
-			    console.log('vConsole is ready.');
-		    },
-		    onClearLog: function() {
-			    console.log('on clearLog');
-		    }
-	    });
-
+    async function main() {
+ 
       await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
       if (!liff.isLoggedIn()) {
-        console.log("ログインしていません";
         liff.login();
       } else {
-        console.log("ログインしています";
         const profile = await liff.getProfile();
         const userId = profile.userId;
         const displayName = profile.displayName;
@@ -43,9 +19,8 @@
         // URLパラメータから流入元を取得（例: ?from=menuA）
         const urlParams = new URLSearchParams(window.location.search);
         const source = urlParams.get('from') || 'unknown';
-        console.log(displayName);
         let googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url';
-/*
+
     
 if (source == '01_A') {         // ボタンA
         // Googleフォームの事前入力URL
@@ -66,7 +41,7 @@ if (source == '01_A') {         // ボタンA
                              + '&entry.1076542200=source';
 
         }
-*/        
+        
         window.location.href = googleFormUrl;
       }
     }
