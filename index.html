@@ -20,7 +20,7 @@
         const userId = profile.userId;
         const displayName = profile.displayName;
 
-        const url = "https://script.google.com/macros/s/AKfycbxNPZCDLLSSqVdf06gj3R-OK5Zm1-bPrcmT38YmBkOoJ9NxA7xTjNhG0jpJG8zvW_dY5g/exec";
+        const url = "https://script.google.com/macros/s/AKfycby-xTOgQAPPKu4OdG7nJ2GJkIRd64Z-5pVSPR-48ZpT/dev";
         const sendData = {
           userId: userId,
           userName: displayName
@@ -41,19 +41,19 @@
         }
         if (source == '01_B') {         // ボタンB
 
-        await fetch(url, {
-          method: "POST",
-          body: JSON.stringify(sendData)
-        })
-        .then(response => response.json())
-        .then(result => console.log("送信成功:", result))
-        .catch(error => console.error("エラー:", error));
-
          googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
                         + '&entry.98540952=' + encodeURIComponent(userId);
 
         }
         if (source == '01_C') {         // ボタンC
+          await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(sendData)
+          })
+          .then(response => response.json())
+          .then(result => console.log("送信成功:", result))
+          .catch(error => console.error("エラー:", error));
+
          googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
                         + '&entry.98540952=' + encodeURIComponent(userId);
 
@@ -64,11 +64,25 @@
                          + '&entry.1541089756=' + encodeURIComponent(userId);
         }
         if (source == '01_E') {         // ボタンB
+          await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(sendData)
+          })
+          .then(response => response.json())
+          .then(result => console.log("送信成功:", result))
+          .catch(error => console.error("エラー:", error));
          googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
                         + '&entry.98540952=' + encodeURIComponent(userId);
 
         }
         if (source == '01_F') {         // ボタンC
+          await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(sendData)
+          })
+          .then(response => response.json())
+          .then(result => console.log("送信成功:", result))
+          .catch(error => console.error("エラー:", error));
          googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
                         + '&entry.98540952=' + encodeURIComponent(userId);
 
@@ -84,5 +98,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  24</body>
+  <body>Redirecting to Google Form...  25</body>
 </html>
