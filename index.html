@@ -20,6 +20,20 @@
         const userId = profile.userId;
         const displayName = profile.displayName;
 
+        const url = "https://script.google.com/macros/s/AKfycbzxvrHZ27a-Dk5pKzjGpMakxTK0b1RbFaxVutiw7KnzADi_sw8QResISv_xMtQUxSOSxg/exec";
+        const sendData = {
+          userId: userId,
+          userName: displayName
+        };
+
+        fetch(url, {
+          method: "POST",
+          body: JSON.stringify(sendData)
+        })
+        .then(response => response.json())
+        .then(result => console.log("送信成功:", result))
+        .catch(error => console.error("エラー:", error));
+
         // URLパラメータから流入元を取得（例: ?from=menuA）
         const urlParams = new URLSearchParams(window.location.search);
 //        const source = urlParams.get('from') || 'unknown';
@@ -54,5 +68,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  13</body>
+  <body>Redirecting to Google Form...  20</body>
 </html>
