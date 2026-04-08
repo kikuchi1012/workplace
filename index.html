@@ -20,7 +20,7 @@
         const userId = profile.userId;
         const displayName = profile.displayName;
 
-        const url = "https://script.google.com/macros/s/AKfycby-xTOgQAPPKu4OdG7nJ2GJkIRd64Z-5pVSPR-48ZpT/dev";
+        const url = "https://script.google.com/macros/s/AKfycbxk9S3SyABn0JY6CFqccc7ay_pOXqgB4DKH53TUKt8SrgL4H7S29shmYwQRVG0vBvI3DQ/exec";
         const sendData = {
           userId: userId,
           userName: displayName
@@ -36,8 +36,8 @@
         // 
         if (source == '01_A') {         // ボタンA
           googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfrNUx8SL1090gq1joqcCSbowo3_lPm0Aj7WVBsQEXF4tib1A/viewform?usp=pp_url'
-                         + '&entry.861173990=' + encodeURIComponent(userId)
-                         + '&entry.369074701=' + encodeURIComponent(displayName);
+                         + '&entry.414893114=' + encodeURIComponent(userId)
+                         + '&entry.1112364558=' + encodeURIComponent(displayName);
         }
         if (source == '01_B') {         // ボタンB
 
@@ -60,8 +60,8 @@
         }
         if (source == '01_D') {         // ボタンA
           googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzhgecAkCrgUQ7Cznnxg2ObH-HUOEvGwmpDKaPymaMNttwhg/viewform?usp=pp_url'
-                         + '&entry.292645498=' + encodeURIComponent(userId)
-                         + '&entry.1541089756=' + encodeURIComponent(userId);
+                         + '&entry.802267171=' + encodeURIComponent(userId)
+                         + '&entry.696754248=' + encodeURIComponent(userId);
         }
         if (source == '01_E') {         // ボタンB
           await fetch(url, {
@@ -98,5 +98,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  25</body>
+  <body>Redirecting to Google Form...  26</body>
 </html>
