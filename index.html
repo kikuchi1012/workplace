@@ -63,7 +63,7 @@
                          + '&entry.802267171=' + encodeURIComponent(userId)
                          + '&entry.696754248=' + encodeURIComponent(userId);
         }
-        if (source == '01_E') {         // ボタンB
+        if (source == '01_E') {         // 代理入力
           await fetch(url, {
             method: "POST",
             body: JSON.stringify(sendData)
@@ -71,7 +71,55 @@
           .then(response => response.json())
           .then(result => console.log("送信成功:", result))
           .catch(error => console.error("エラー:", error));
-         googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
+
+          const data = await response.json();
+          console.log("GASからのレスポンス:", data);
+          // ここでdataを使ってLIFFの画面を更新する
+          // document.getElementById("message").innerText = data.message;
+          let shibu = data.shibu
+          let chiku = data.chiku
+          switch (shibu) {
+            case 日の出大勝:
+              googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfB3at4wYQ-rLafAg55r1VbisqnSdhi1dobSr2kgxDOk7OUjw/viewform?usp=pp_url'
+                            + '&entry.176021661=' + encodeURIComponent(chiku);
+                            + '&entry.1109026943=' + encodeURIComponent(userId);
+              
+              break;
+          
+            case 旭日:
+              googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfMeQ29gI6RJXVyPZ-rs9g0OPfQ7CQs3XfAzK_a4o6L2V6UYQ/viewform?usp=pp_url'
+                            + '&entry.1337203131=' + encodeURIComponent(chiku);
+                            + '&entry.268764361=' + encodeURIComponent(userId);
+              
+              break;
+          
+            case 檜原常勝:
+              googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc3jvWh7pAtYI2rPd6j39VX9fWs06vA--43E_JwaOx7vWLnxA/viewform?usp=pp_url'
+                            + '&entry.2054063888=' + encodeURIComponent(chiku);
+                            + '&entry.206382722=' + encodeURIComponent(userId);
+              
+              break;
+          
+            case 五日市王城:
+              googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdC2TWBVqoTZFEaxQYxd6jaOn8G1FNTkz3JSCDHVjMsY-T4yg/viewform?usp=pp_url'
+                            + '&entry.1746804538=' + encodeURIComponent(chiku);
+                            + '&entry.146659534=' + encodeURIComponent(userId);
+              
+              break;
+          
+            case 常勝:
+              googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdpaQ39nyIiKrdoxnudCmRxq24etDQPNBsykN72usM6ILVJqQ/viewform?usp=pp_url'
+                            + '&entry.1762659060=' + encodeURIComponent(chiku);
+                            + '&entry.1880228929=' + encodeURIComponent(userId);
+              
+              break;
+          
+            default:
+              break;
+          }
+
+
+          googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
                         + '&entry.98540952=' + encodeURIComponent(userId);
 
         }
@@ -98,5 +146,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  26</body>
+  <body>Redirecting to Google Form...  27</body>
 </html>
