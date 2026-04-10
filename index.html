@@ -78,16 +78,11 @@
           // document.getElementById("message").innerText = data.message;
           let shibu = data.shibu;
           let chiku = data.chiku;
-          let shibu0 = '日の出大勝';
-          let chiku0 = '長者';
-              googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfB3at4wYQ-rLafAg55r1VbisqnSdhi1dobSr2kgxDOk7OUjw/viewform?usp=pp_url'
-                            + '&entry.176021661=' + encodeURIComponent(chiku0)
-                            + '&entry.1109026943=' + encodeURIComponent(shibu);
           switch (shibu) {
             case '日の出大勝':
-//              googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfB3at4wYQ-rLafAg55r1VbisqnSdhi1dobSr2kgxDOk7OUjw/viewform?usp=pp_url'
-//                            + '&entry.176021661=' + encodeURIComponent(chiku)
-//                            + '&entry.1109026943=' + encodeURIComponent(userId);
+              googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfB3at4wYQ-rLafAg55r1VbisqnSdhi1dobSr2kgxDOk7OUjw/viewform?usp=pp_url'
+                            + '&entry.176021661=' + encodeURIComponent(chiku)
+                            + '&entry.1109026943=' + encodeURIComponent(userId);
               
               break;
           
@@ -148,5 +143,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  40</body>
+  <body>Redirecting to Google Form...  41</body>
 </html>
