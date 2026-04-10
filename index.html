@@ -50,10 +50,7 @@
           await fetch(url, {
             method: "POST",
             body: JSON.stringify(sendData)
-          })
-          .then(response => response.json())
-          .then(result => console.log("送信成功:", result))
-          .catch(error => console.error("エラー:", error));
+          });
 
          googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
                         + '&entry.98540952=' + encodeURIComponent(userId);
@@ -68,10 +65,7 @@
           await fetch(url, {
             method: "POST",
             body: JSON.stringify(sendData)
-          })
-          .then(response => response.json())
-          .then(result => console.log("送信成功:", result))
-          .catch(error => console.error("エラー:", error));
+          });
 
           const data = await response.json();
           console.log("GASからのレスポンス:", data);
@@ -147,5 +141,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  29</body>
+  <body>Redirecting to Google Form...  30</body>
 </html>
