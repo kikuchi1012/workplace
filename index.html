@@ -57,6 +57,7 @@
 
         }
         if (source == '01_D') {         // ボタンA
+
           googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzhgecAkCrgUQ7Cznnxg2ObH-HUOEvGwmpDKaPymaMNttwhg/viewform?usp=pp_url'
                          + '&entry.802267171=' + encodeURIComponent(userId)
                          + '&entry.696754248=' + encodeURIComponent(userId);
@@ -66,7 +67,9 @@
             method: "POST",
             body: JSON.stringify(sendData),
             // リダイレクトを追跡する設定を追加
-            redirect: "follow"
+            redirect: "follow",
+            mode: "cors"
+
           });
 
           const data = await response.json();
@@ -145,5 +148,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  37</body>
+  <body>Redirecting to Google Form...  38</body>
 </html>
