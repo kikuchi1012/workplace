@@ -10,6 +10,7 @@
 
     async function main() {
       let googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url';
+      document.getElementById("text").style.fontSize = '48px';
       try {
         await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
         if (!liff.isLoggedIn()) {
@@ -143,5 +144,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  41</body>
+  <body>Redirecting to Google Form...  42</body>
 </html>
