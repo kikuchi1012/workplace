@@ -24,7 +24,7 @@
 //        const source = urlParams.get('from') || 'unknown';
         const source = urlParams.get('from');
 
-        const url = "https://script.google.com/macros/s/AKfycbxgCYiDyY2HAOPjWZsy0xbdR4cM8qZAJSAzg9EOe8eJ6fL1IFNFaCaAS0qAzWtsa07wlQ/exec";
+        const url = "https://script.google.com/macros/s/AKfycbyt2lBYdUT1SwTPSDw3j1DgsVq1YlTZgHrcyecdEUA6ak-NCmeDKmV2eG0xI36x55yWgQ/exec";
         const sendData = {
           userId: userId,
           userName: displayName,
@@ -33,8 +33,25 @@
 
 
 
-        let response;
+//        let response;
+          const response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(sendData),
+            // リダイレクトを追跡する設定を追加
+            redirect: "follow",
+            mode: "cors"
 
+          });
+
+          const data = await response.json();
+//          console.log("GASからのレスポンス:", data);
+          // ここでdataを使ってLIFFの画面を更新する
+          // document.getElementById("message").innerText = data.message;
+          let googleFormUrl = data.url;
+
+
+
+/*
        // Googleフォームの事前入力URL
         // フォーム側で「事前入力項目」を追加する（entry.xxx部分）
         // 
@@ -135,7 +152,10 @@
                         + '&entry.98540952=' + encodeURIComponent(userId);
 
         }
-      }  
+*/
+      }
+        
+
         window.location.href = googleFormUrl;
           
       } catch (error) {
@@ -147,6 +167,6 @@
   </script>
 </head> 
   <body>
-    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  68</span>
+    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  69</span>
   </body>
 </html>
