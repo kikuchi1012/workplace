@@ -24,7 +24,7 @@
 //        const source = urlParams.get('from') || 'unknown';
         const source = urlParams.get('from');
 
-        const url = "https://script.google.com/macros/s/AKfycbxdR2E-ywLesaMjsj3KT5KM68mDmNDw6PZQjLxpLmTYd8KipNU8YqNQ5M4kDtiBIGh-MQ/exec";
+        const url = "https://script.google.com/macros/s/AKfycbyKE5SN-SbrEDPRbqD1XF7zJnUXNwkN0l2x5PP_Yfke3wLNGCNNcIWqu-LOtD5df_E9yg/exec";
         
         const sendData = {
           userId: userId,
@@ -42,17 +42,20 @@
             redirect: "follow",
             mode: "cors"
 
+          
           });
 
           const data = await response.json();
 //          console.log("GASからのレスポンス:", data);
           // ここでdataを使ってLIFFの画面を更新する
           // document.getElementById("message").innerText = data.message;
-          let googleFormUrl = data.url;
+          let shibu = data.shibu;
+          let chiku = data.chiku;
+          let testUrl = data.url;
 
 
 
-/*
+
        // Googleフォームの事前入力URL
         // フォーム側で「事前入力項目」を追加する（entry.xxx部分）
         // 
@@ -81,7 +84,7 @@
 
           googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzhgecAkCrgUQ7Cznnxg2ObH-HUOEvGwmpDKaPymaMNttwhg/viewform?usp=pp_url'
                          + '&entry.1966242949=' + encodeURIComponent(userId)
-                         + '&entry.1887531497=' + encodeURIComponent(userId);
+                         + '&entry.1887531497=' + encodeURIComponent(testUrl);
         }
         if (source == '01_E') {         // 代理入力
           const response = await fetch(url, {
@@ -153,7 +156,9 @@
                         + '&entry.98540952=' + encodeURIComponent(userId);
 
         }
-*/
+
+
+
       }
         
 
@@ -168,6 +173,6 @@
   </script>
 </head> 
   <body>
-    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  72</span>
+    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  73</span>
   </body>
 </html>
