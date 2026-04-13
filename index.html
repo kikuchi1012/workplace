@@ -15,22 +15,22 @@
           liff.login();
           return; // ログイン画面へ飛ぶため、ここで処理を止める
         } else {
-        const profile = await liff.getProfile();
-        const userId = profile.userId;
-        const displayName = profile.displayName;
+          const profile = await liff.getProfile();
+          const userId = profile.userId;
+          const displayName = profile.displayName;
 
-        // URLパラメータから流入元を取得（例: ?from=menuA）
-        const urlParams = new URLSearchParams(window.location.search);
+          // URLパラメータから流入元を取得（例: ?from=menuA）
+          const urlParams = new URLSearchParams(window.location.search);
 //        const source = urlParams.get('from') || 'unknown';
-        const source = urlParams.get('from');
+          const source = urlParams.get('from');
 
-        const url = "https://script.google.com/macros/s/AKfycbzBC3Rtece9t_SJeiwgUQDOgjEmvQ8bYDBfPXM510fJcaH_VxEyQ7Xrp3qftkzFN0QvFw/exec";
+          const url = "https://script.google.com/macros/s/AKfycbzBC3Rtece9t_SJeiwgUQDOgjEmvQ8bYDBfPXM510fJcaH_VxEyQ7Xrp3qftkzFN0QvFw/exec";
         
-        const sendData = {
-          userId: userId,
-          userName: displayName,
-          source: source
-        };
+          const sendData = {
+            userId: userId,
+            userName: displayName,
+            source: source
+          };
 
 
 
@@ -59,35 +59,35 @@
        // Googleフォームの事前入力URL
         // フォーム側で「事前入力項目」を追加する（entry.xxx部分）
         // 
-        if (source == '01_A') {         // ボタンA
-          googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfrNUx8SL1090gq1joqcCSbowo3_lPm0Aj7WVBsQEXF4tib1A/viewform?usp=pp_url'
-                         + '&entry.387614119=' + encodeURIComponent(userId)
-                         + '&entry.1475325823=' + encodeURIComponent(displayName);
-        }
-        if (source == '01_B') {         // ボタンB
+          if (source == '01_A') {         // ボタンA
+            googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfrNUx8SL1090gq1joqcCSbowo3_lPm0Aj7WVBsQEXF4tib1A/viewform?usp=pp_url'
+                           + '&entry.387614119=' + encodeURIComponent(userId)
+                           + '&entry.1475325823=' + encodeURIComponent(displayName);
+          }
+          if (source == '01_B') {         // ボタンB
 
-         googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
-                        + '&entry.98540952=' + encodeURIComponent(userId);
+            googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
+                          + '&entry.98540952=' + encodeURIComponent(userId);
 
-        }
-        if (source == '01_C') {         // ボタンC
-          await fetch(url, {
-            method: "POST",
-            body: JSON.stringify(sendData)
-          });
+          }
+          if (source == '01_C') {         // ボタンC
+            await fetch(url, {
+              method: "POST",
+              body: JSON.stringify(sendData)
+            });
 
-         googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
-                        + '&entry.98540952=' + encodeURIComponent(userId);
+            googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
+                          + '&entry.98540952=' + encodeURIComponent(userId);
 
-        }
-        if (source == '01_D') {         // ボタンA
+          }
+          if (source == '01_D') {         // ボタンA
 
-          googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzhgecAkCrgUQ7Cznnxg2ObH-HUOEvGwmpDKaPymaMNttwhg/viewform?usp=pp_url'
-                         + '&entry.1966242949=' + encodeURIComponent(userId)
-                         + '&entry.1887531497=' + encodeURIComponent(userId);
-        }
-        if (source == '01_E') {         // 代理入力
-          const response = await fetch(url, {
+            googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzhgecAkCrgUQ7Cznnxg2ObH-HUOEvGwmpDKaPymaMNttwhg/viewform?usp=pp_url'
+                           + '&entry.1966242949=' + encodeURIComponent(userId)
+                           + '&entry.1887531497=' + encodeURIComponent(userId);
+          }
+          if (source == '01_E') {         // 代理入力
+            const response = await fetch(url, {
             method: "POST",
             body: JSON.stringify(sendData),
             // リダイレクトを追跡する設定を追加
@@ -96,13 +96,13 @@
 
           });
 
-          const data = await response.json();
+            const data = await response.json();
 //          console.log("GASからのレスポンス:", data);
           // ここでdataを使ってLIFFの画面を更新する
           // document.getElementById("message").innerText = data.message;
-          let shibu = data.shibu;
-          let chiku = data.chiku;
-          switch (shibu) {
+          //  let shibu = data.shibu;
+          //  let chiku = data.chiku;
+            switch (shibu) {
             case '日の出大勝':
               googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdcw1pIcX0P8pVAoPncCZSEUIxOoA_alSZflNfeDwZRDVRN4w/viewform?usp=pp_url'
                             + '&entry.1251311683=' + encodeURIComponent(chiku)
@@ -140,26 +140,26 @@
           
             default:
               break;
+            }
+
+
+          }
+          if (source == '01_F') {         // ボタンC
+            await fetch(url, {
+              method: "POST",
+              body: JSON.stringify(sendData)
+            })
+            .then(response => response.json())
+            .then(result => console.log("送信成功:", result))
+            .catch(error => console.error("エラー:", error));
+            googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
+                            + '&entry.98540952=' + encodeURIComponent(userId);
+
           }
 
 
-        }
-        if (source == '01_F') {         // ボタンC
-          await fetch(url, {
-            method: "POST",
-            body: JSON.stringify(sendData)
-          })
-          .then(response => response.json())
-          .then(result => console.log("送信成功:", result))
-          .catch(error => console.error("エラー:", error));
-         googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfsLqddduemZ70qxTrSysQjN3mGAlKRvEMxzC4AzR8tdO4cOg/viewform?usp=pp_url'
-                        + '&entry.98540952=' + encodeURIComponent(userId);
 
         }
-
-
-
-      }
         
 
         window.location.href = googleFormUrl;
@@ -173,6 +173,6 @@
   </script>
 </head> 
   <body>
-    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  75</span>
+    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  76</span>
   </body>
 </html>
