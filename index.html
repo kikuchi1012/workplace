@@ -81,7 +81,7 @@
 
             googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzhgecAkCrgUQ7Cznnxg2ObH-HUOEvGwmpDKaPymaMNttwhg/viewform?usp=pp_url'
                            + '&entry.1966242949=' + encodeURIComponent(userId)
-                           + '&entry.1887531497=' + encodeURIComponent(testUrl);
+                           + '&entry.1887531497=' + encodeURIComponent(userId);
           }
           if (source == '01_E') {         // 代理入力
 /*
@@ -103,9 +103,12 @@
 */
             switch (data.shibu) {
             case '日の出大勝':
+              /*
               googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdcw1pIcX0P8pVAoPncCZSEUIxOoA_alSZflNfeDwZRDVRN4w/viewform?usp=pp_url'
                             + '&entry.1251311683=' + encodeURIComponent(data.chiku)
                             + '&entry.2057846946=' + encodeURIComponent(userId);
+              */
+              googleFormUrl = testUrl;
               
               break;
           
@@ -174,6 +177,6 @@
   </script>
 </head> 
   <body>
-    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  94</span>
+    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  95</span>
   </body>
 </html>
