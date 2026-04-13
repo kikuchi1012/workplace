@@ -19,16 +19,20 @@
         const userId = profile.userId;
         const displayName = profile.displayName;
 
-        const url = "https://script.google.com/macros/s/AKfycbyvmxRwOKJVvSq3QfHWoIjaQbXz0Xza4VbRq8qj-1CVE7HetMdvY1h9wRTrQxt1rgFK3w/exec";
-        const sendData = {
-          userId: userId,
-          userName: displayName
-        };
-
         // URLパラメータから流入元を取得（例: ?from=menuA）
         const urlParams = new URLSearchParams(window.location.search);
 //        const source = urlParams.get('from') || 'unknown';
         const source = urlParams.get('from');
+
+        const url = "https://script.google.com/macros/s/AKfycbyvmxRwOKJVvSq3QfHWoIjaQbXz0Xza4VbRq8qj-1CVE7HetMdvY1h9wRTrQxt1rgFK3w/exec";
+        const sendData = {
+          userId: userId,
+          userName: displayName,
+          source: source
+        };
+
+
+
         let response;
 
        // Googleフォームの事前入力URL
@@ -142,5 +146,5 @@
     window.addEventListener('load', main);
   </script>
 </head> 
-  <body>Redirecting to Google Form...  49</body>
+  <body>Redirecting to Google Form...  50</body>
 </html>
