@@ -51,12 +51,14 @@
           let testUrl = data.url;
 
 
+              googleFormUrl = testUrl;
 
+          let sourceX = "aaa";
 
        // Googleフォームの事前入力URL
         // フォーム側で「事前入力項目」を追加する（entry.xxx部分）
         // 
-          if (source == '01_A') {         // ボタンA
+          if (sourceX == '01_A') {         // ボタンA
             googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfrNUx8SL1090gq1joqcCSbowo3_lPm0Aj7WVBsQEXF4tib1A/viewform?usp=pp_url'
                            + '&entry.387614119=' + encodeURIComponent(userId)
                            + '&entry.1475325823=' + encodeURIComponent(displayName);
@@ -67,7 +69,7 @@
                           + '&entry.98540952=' + encodeURIComponent(userId);
 
           }
-          if (source == '01_C') {         // ボタンC
+          if (sourceX == '01_C') {         // ボタンC
             await fetch(url, {
               method: "POST",
               body: JSON.stringify(sendData)
@@ -77,13 +79,13 @@
                           + '&entry.98540952=' + encodeURIComponent(userId);
 
           }
-          if (source == '01_D') {         // ボタンA
+          if (sourceX == '01_D') {         // ボタンA
 
             googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzhgecAkCrgUQ7Cznnxg2ObH-HUOEvGwmpDKaPymaMNttwhg/viewform?usp=pp_url'
                            + '&entry.1966242949=' + encodeURIComponent(userId)
                            + '&entry.1887531497=' + encodeURIComponent(userId);
           }
-          if (source == '01_E') {         // 代理入力
+          if (sourceX == '01_E') {         // 代理入力
 /*
             const response = await fetch(url, {
               method: "POST",
@@ -146,7 +148,7 @@
 
 
           }
-          if (source == '01_F') {         // ボタンC
+          if (sourceX == '01_F') {         // ボタンC
 /*
             await fetch(url, {
               method: "POST",
@@ -177,6 +179,6 @@
   </script>
 </head> 
   <body>
-    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  95</span>
+    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  96</span>
   </body>
 </html>
