@@ -100,10 +100,10 @@
 //          console.log("GASからのレスポンス:", data);
           // ここでdataを使ってLIFFの画面を更新する
           // document.getElementById("message").innerText = data.message;
-            shibu = data.shibu;
-            chiku = data.chiku;
+//            shibu = data.shibu;
+//            chiku = data.chiku;
 
-            switch (shibu) {
+            switch (data.shibu) {
             case '日の出大勝':
               googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdcw1pIcX0P8pVAoPncCZSEUIxOoA_alSZflNfeDwZRDVRN4w/viewform?usp=pp_url'
                             + '&entry.1251311683=' + encodeURIComponent(chiku)
@@ -176,6 +176,6 @@
   </script>
 </head> 
   <body>
-    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  80</span>
+    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  81</span>
   </body>
 </html>
