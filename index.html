@@ -87,20 +87,20 @@
           if (source == '01_E') {         // 代理入力
 
             const response = await fetch(url, {
-            method: "POST",
-            body: JSON.stringify(sendData),
-            // リダイレクトを追跡する設定を追加
-            redirect: "follow",
-            mode: "cors"
+              method: "POST",
+              body: JSON.stringify(sendData),
+              // リダイレクトを追跡する設定を追加
+              redirect: "follow",
+              mode: "cors"
 
-          });
+            });
 
             const data = await response.json();
 //          console.log("GASからのレスポンス:", data);
           // ここでdataを使ってLIFFの画面を更新する
           // document.getElementById("message").innerText = data.message;
-            let shibu = data.shibu;
-            let chiku = data.chiku;
+            shibu = data.shibu;
+            chiku = data.chiku;
 
             switch (shibu) {
             case '日の出大勝':
@@ -175,6 +175,6 @@
   </script>
 </head> 
   <body>
-    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  78</span>
+    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  79</span>
   </body>
 </html>
