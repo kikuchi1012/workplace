@@ -34,7 +34,7 @@
 
 
         let response;
-/*
+
 //        let response;
           const response = await fetch(url, {
             method: "POST",
@@ -50,8 +50,8 @@
           // document.getElementById("message").innerText = data.message;
           let shibu = data.shibu;
           let chiku = data.chiku;
-//          let testUrl = data.url;
-*/
+          let testUrl = data.url;
+
 
 
 
@@ -83,10 +83,10 @@
 
             googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzhgecAkCrgUQ7Cznnxg2ObH-HUOEvGwmpDKaPymaMNttwhg/viewform?usp=pp_url'
                            + '&entry.1966242949=' + encodeURIComponent(userId)
-                           + '&entry.1887531497=' + encodeURIComponent(userId);
+                           + '&entry.1887531497=' + encodeURIComponent(testUrl);
           }
           if (source == '01_E') {         // 代理入力
-
+/*
             const response = await fetch(url, {
               method: "POST",
               body: JSON.stringify(sendData),
@@ -102,7 +102,7 @@
           // document.getElementById("message").innerText = data.message;
 //            shibu = data.shibu;
 //            chiku = data.chiku;
-
+*/
             switch (data.shibu) {
             case '日の出大勝':
               googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdcw1pIcX0P8pVAoPncCZSEUIxOoA_alSZflNfeDwZRDVRN4w/viewform?usp=pp_url'
@@ -176,6 +176,6 @@
   </script>
 </head> 
   <body>
-    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  92</span>
+    <span style="font-size: 50px; font-weight: bold;">Redirecting to Google Form...  93</span>
   </body>
 </html>
