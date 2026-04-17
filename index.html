@@ -24,16 +24,16 @@
           const urlParams = new URLSearchParams(window.location.search);
 //        const source = urlParams.get('from') || 'unknown';
           const source = urlParams.get('from');
-/*
-          const url = "https://script.google.com/macros/s/AKfycbzL1WTKHWnBr3L3DySn5te5Xl49R8r1pg9CaPt1n-2joqeC3ZLue0OV5fdsglDwBnqZOA/exec";
+
+          const url = "https://script.google.com/macros/s/AKfycby3GTK9sKD2bD2vCvoBe5BQS1ZWNU-DXOLrSu0GzNIQnlQ7Lnc9IGUcTWl6_v4MlemWhQ/exec";
 
           const sendData = {
             userId: userId,
             userName: displayName,
-            source: source
+//            source: source
           };
 
-
+/*
 //        let response;
           const response = await fetch(url, {
             method: "POST",
@@ -241,10 +241,20 @@
                             ValuesFM[4][7] + encodeURIComponent(userId);
             break;
           case '01_E':
+            const response = await fetch(url, {
+              method: "POST",
+              body: JSON.stringify(sendData),
+            // リダイレクトを追跡する設定を追加
+              redirect: "follow",
+              mode: "cors"
+            });
+
+            const data = await response.json();
+            let shibu = data.shibu;
+            let chiku = data.chiku;
+
             let length = ValuesFM.length;
             let no;
-            let shibu = userId.split('@')[1];
-            let chiku = userId.split('@')[2];
             for(i=1;i<length;i++) {
               if(shibu == ValuesFM[i][1].split('_')[0]) no = i;
             }
@@ -269,7 +279,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-        処理中です。<br>数秒間お待ちください... 133
+        処理中です。<br>数秒間お待ちください... 134
     </span>
   </body>
 </html>
