@@ -7,49 +7,6 @@
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <!-- ここにコメントを書きます -->
   <script>
-    function getgoogleFormUrl(userId, displayName, source) {
-      let googleFormUrl;
-      const ValuesFM = [
-        ['No','FormName','FormID','PrefilledFormURL','ep_userID','ep_userName','ep_chiku','ep_userID_X'],
-        ['1','第１管区所属組織登録','1mD1zP-bcaf4Yx0gdXaurL4B3eDFpOA931i00sKdLlwg','https://docs.google.com/forms/d/e/1FAIpQLSfrNUx8SL1090gq1joqcCSbowo3_lPm0Aj7WVBsQEXF4tib1A/viewform?usp=pp_url','&entry.1176114069=','&entry.166407725=','',''],
-        ['2','第２管区所属組織登録','','','','','',''],
-        ['3','第３管区所属組織登録','','','','','',''],
-        ['4','第１管区所属組織代理登録','1WcJEZDlJFrnMH_HaKFd_1Y2TAFlQiHXJAM13j5cWjfM','https://docs.google.com/forms/d/e/1FAIpQLSfHOcTStQ2pOpDogxpk80sBZ_vnB_l_xjsCDTX5-VIBrzq10g/viewform?usp=pp_url','&entry.878715639=','&entry.1631154865=','','&entry.1805267751='],
-        ['5','第２管区所属組織代理登録','','','','','',''],
-        ['6','第３管区所属組織代理登録','','','','','',''],
-        ['7','ハナサクカウンター','1VEd3kxCDNmkxb9G5hinVUuNN4KFD7HYufULXS77loYU','https://docs.google.com/forms/d/e/1FAIpQLSfsE6qiqx0RH-eBUcW3iV0D8LJrsuijgtyKNNAAKC0EXQb6Lw/viewform?usp=pp_url','&entry.1563368283=','','',''],
-        ['8','入力履歴','1vSsq_PcKS2dasheF0ng15fUAcFSDT3y8tMqvvXUqKnY','https://docs.google.com/forms/d/e/1FAIpQLScRQ93_keEhVBEkThqvnn-HiG3XrHsakL6vwYz3NilpqrMpGw/viewform?usp=pp_url','&entry.1007785193=','','',''],
-        ['9','代理入力履歴','1RF_KDg7PUtkjzFAY52WgztxuuEW8SoecSxuLKafDHis','https://docs.google.com/forms/d/e/1FAIpQLSeQZxb6rdjYTF1hLNGXJpvM6WEZ915p65LdqTMrtbT_QfHbuQ/viewform?usp=pp_url','&entry.1493562207=','','',''],
-        ['10','日の出大勝_代理入力','1rwYe9NnijDMOFsHE3EdLnJyNlRBDr09a_UK9fd7FBD4','https://docs.google.com/forms/d/e/1FAIpQLSdi1oax-BXE8zPzPy6pmSPh3_RbcNZRwKCuRgzu1qT_sg3IhQ/viewform?usp=pp_url','&entry.1391720260=','','&entry.882807890=',''],
-        ['11','旭日_代理入力','18xSghuRrLcMj1opEp7G3KPObl4YaBx2v1p1AEa2Cl18','https://docs.google.com/forms/d/e/1FAIpQLSfMeQ29gI6RJXVyPZ-rs9g0OPfQ7CQs3XfAzK_a4o6L2V6UYQ/viewform?usp=pp_url','&entry.1259320226=','','&entry.616460451=',''],
-        ['12','檜原常勝_代理入力','1Yr-NqmsrCmfP32FbSHhsY6FCDFpNKXA_jtcWqVs_N3k','https://docs.google.com/forms/d/e/1FAIpQLSc3jvWh7pAtYI2rPd6j39VX9fWs06vA--43E_JwaOx7vWLnxA/viewform?usp=pp_url','&entry.1241788353=','','&entry.1020613138=',''],
-        ['13','五日市王城_代理入力','1U0GHHB4N8NAEnx2wsdX48n4i_i6gkHfITNdFmWjyftQ','https://docs.google.com/forms/d/e/1FAIpQLSdC2TWBVqoTZFEaxQYxd6jaOn8G1FNTkz3JSCDHVjMsY-T4yg/viewform?usp=pp_url','&entry.1399002113=','','&entry.1966493830=',''],
-        ['14','常勝_代理入力','1FR-OY8hv-lkQQn4TwMWv7XR2QfkI23fJPUBdCNO3U2g','https://docs.google.com/forms/d/e/1FAIpQLSdpaQ39nyIiKrdoxnudCmRxq24etDQPNBsykN72usM6ILVJqQ/viewform?usp=pp_url','&entry.457718042=','','&entry.965582842=',''],
-        ['15','秋川大勝_代理入力','1LPxJFnYgKGFAcWqcHDEpoNFyDGZCmjMwBvDZYGk9ySY','https://docs.google.com/forms/d/e/1FAIpQLSdq8WGl3KBJ2tlj_JQIdTOrhBxRHvOlSZKeiS1dZ5JU7CwP3w/viewform?usp=pp_url','&entry.352103587=','','&entry.1802015457=',''],
-        ['16','五日市希望_代理入力','1md61X10RjPZ4jqWGc4JSts_3i6phITwPd_6WAm15RaI','https://docs.google.com/forms/d/e/1FAIpQLSeNUCZwnbhU0hSb5La7xNMMQ9knp8q30PVgmxGnBDHU79STxg/viewform?usp=pp_url','&entry.1107131244=','','&entry.1142529042=',''],
-        ['17','黄金台_代理入力','','','','','',''],
-        ['18','草花大光_代理入力','','','','','',''],
-        ['19','新世紀_代理入力','','','','','',''],
-        ['20','秋多創価_代理入力','','','','','',''],
-        ['21','秋川栄光_代理入力','','','','','',''],
-        ['22','創価睦_代理入力','','','','','',''],
-        ['23','田園桜花_代理入力','1DRBJtbpo1e6zOXD-IoftzZJ_-V-7TZapejnGsYIgPCM','https://docs.google.com/forms/d/e/1FAIpQLSeee_AzdhXW8laSbnrgbF8GW9sAOcwqVn0mdX7aSiiZKcbbnQ/viewform?usp=pp_url','&entry.1686273796=','','&entry.251445465=',''],
-        ['24','福生池田_代理入力','1LxoIi3b4xMU6ayDyzubqZPejc6AOWJIdx2wSRWJopho','https://docs.google.com/forms/d/e/1FAIpQLScWX7ShhGUdhoAlaneWz6IPw1G0ywDTZOKXRIdU_yAn2awUhA/viewform?usp=pp_url','&entry.711646848=','','&entry.1524962983=',''],
-        ['25','福生法城_代理入力','1IsqwOANhyo-xpxGLzAi74Muvt1qSN1c8q6hQsvLfV5U','https://docs.google.com/forms/d/e/1FAIpQLSeuPgxLI8NIyHUf-dGHTlFcmI1TL7abcJDpsVqo6NndLsOIcw/viewform?usp=pp_url','&entry.870090202=','','&entry.438451996=',''],
-        ['26','武蔵野広宣_代理入力','','','','','',''],
-        ['27','横田希望_代理入力','','','','','',''],
-        ['28','青春東福生_代理入力','','','','','',''],
-        ['29','加美平王城_代理入力','','','','','',''],
-        ['30','熊川本陣_代理入力','','','','','',''],
-        ['31','創価_代理入力','','','','','',''],
-        ['32','富士見完勝_代理入力','','','','','',''],
-        ['33','富士見栄光_代理入力','','','','','',''],      ];
-      return           googleFormUrl = ValuesFM[1][3]
-                         + ValuesFM[1][4] + encodeURIComponent(userId)
-                         + ValuesFM[1][5] + encodeURIComponent(displayName);
-// ここにGoogle FormのURLを生成するロジックを記述
-    }
-
     async function main() {
       try {
         await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
@@ -218,6 +175,49 @@
       }
 
     }
+    function getgoogleFormUrl(userId, displayName, source) {
+      let googleFormUrl;
+      const ValuesFM = [
+        ['No','FormName','FormID','PrefilledFormURL','ep_userID','ep_userName','ep_chiku','ep_userID_X'],
+        ['1','第１管区所属組織登録','1mD1zP-bcaf4Yx0gdXaurL4B3eDFpOA931i00sKdLlwg','https://docs.google.com/forms/d/e/1FAIpQLSfrNUx8SL1090gq1joqcCSbowo3_lPm0Aj7WVBsQEXF4tib1A/viewform?usp=pp_url','&entry.1176114069=','&entry.166407725=','',''],
+        ['2','第２管区所属組織登録','','','','','',''],
+        ['3','第３管区所属組織登録','','','','','',''],
+        ['4','第１管区所属組織代理登録','1WcJEZDlJFrnMH_HaKFd_1Y2TAFlQiHXJAM13j5cWjfM','https://docs.google.com/forms/d/e/1FAIpQLSfHOcTStQ2pOpDogxpk80sBZ_vnB_l_xjsCDTX5-VIBrzq10g/viewform?usp=pp_url','&entry.878715639=','&entry.1631154865=','','&entry.1805267751='],
+        ['5','第２管区所属組織代理登録','','','','','',''],
+        ['6','第３管区所属組織代理登録','','','','','',''],
+        ['7','ハナサクカウンター','1VEd3kxCDNmkxb9G5hinVUuNN4KFD7HYufULXS77loYU','https://docs.google.com/forms/d/e/1FAIpQLSfsE6qiqx0RH-eBUcW3iV0D8LJrsuijgtyKNNAAKC0EXQb6Lw/viewform?usp=pp_url','&entry.1563368283=','','',''],
+        ['8','入力履歴','1vSsq_PcKS2dasheF0ng15fUAcFSDT3y8tMqvvXUqKnY','https://docs.google.com/forms/d/e/1FAIpQLScRQ93_keEhVBEkThqvnn-HiG3XrHsakL6vwYz3NilpqrMpGw/viewform?usp=pp_url','&entry.1007785193=','','',''],
+        ['9','代理入力履歴','1RF_KDg7PUtkjzFAY52WgztxuuEW8SoecSxuLKafDHis','https://docs.google.com/forms/d/e/1FAIpQLSeQZxb6rdjYTF1hLNGXJpvM6WEZ915p65LdqTMrtbT_QfHbuQ/viewform?usp=pp_url','&entry.1493562207=','','',''],
+        ['10','日の出大勝_代理入力','1rwYe9NnijDMOFsHE3EdLnJyNlRBDr09a_UK9fd7FBD4','https://docs.google.com/forms/d/e/1FAIpQLSdi1oax-BXE8zPzPy6pmSPh3_RbcNZRwKCuRgzu1qT_sg3IhQ/viewform?usp=pp_url','&entry.1391720260=','','&entry.882807890=',''],
+        ['11','旭日_代理入力','18xSghuRrLcMj1opEp7G3KPObl4YaBx2v1p1AEa2Cl18','https://docs.google.com/forms/d/e/1FAIpQLSfMeQ29gI6RJXVyPZ-rs9g0OPfQ7CQs3XfAzK_a4o6L2V6UYQ/viewform?usp=pp_url','&entry.1259320226=','','&entry.616460451=',''],
+        ['12','檜原常勝_代理入力','1Yr-NqmsrCmfP32FbSHhsY6FCDFpNKXA_jtcWqVs_N3k','https://docs.google.com/forms/d/e/1FAIpQLSc3jvWh7pAtYI2rPd6j39VX9fWs06vA--43E_JwaOx7vWLnxA/viewform?usp=pp_url','&entry.1241788353=','','&entry.1020613138=',''],
+        ['13','五日市王城_代理入力','1U0GHHB4N8NAEnx2wsdX48n4i_i6gkHfITNdFmWjyftQ','https://docs.google.com/forms/d/e/1FAIpQLSdC2TWBVqoTZFEaxQYxd6jaOn8G1FNTkz3JSCDHVjMsY-T4yg/viewform?usp=pp_url','&entry.1399002113=','','&entry.1966493830=',''],
+        ['14','常勝_代理入力','1FR-OY8hv-lkQQn4TwMWv7XR2QfkI23fJPUBdCNO3U2g','https://docs.google.com/forms/d/e/1FAIpQLSdpaQ39nyIiKrdoxnudCmRxq24etDQPNBsykN72usM6ILVJqQ/viewform?usp=pp_url','&entry.457718042=','','&entry.965582842=',''],
+        ['15','秋川大勝_代理入力','1LPxJFnYgKGFAcWqcHDEpoNFyDGZCmjMwBvDZYGk9ySY','https://docs.google.com/forms/d/e/1FAIpQLSdq8WGl3KBJ2tlj_JQIdTOrhBxRHvOlSZKeiS1dZ5JU7CwP3w/viewform?usp=pp_url','&entry.352103587=','','&entry.1802015457=',''],
+        ['16','五日市希望_代理入力','1md61X10RjPZ4jqWGc4JSts_3i6phITwPd_6WAm15RaI','https://docs.google.com/forms/d/e/1FAIpQLSeNUCZwnbhU0hSb5La7xNMMQ9knp8q30PVgmxGnBDHU79STxg/viewform?usp=pp_url','&entry.1107131244=','','&entry.1142529042=',''],
+        ['17','黄金台_代理入力','','','','','',''],
+        ['18','草花大光_代理入力','','','','','',''],
+        ['19','新世紀_代理入力','','','','','',''],
+        ['20','秋多創価_代理入力','','','','','',''],
+        ['21','秋川栄光_代理入力','','','','','',''],
+        ['22','創価睦_代理入力','','','','','',''],
+        ['23','田園桜花_代理入力','1DRBJtbpo1e6zOXD-IoftzZJ_-V-7TZapejnGsYIgPCM','https://docs.google.com/forms/d/e/1FAIpQLSeee_AzdhXW8laSbnrgbF8GW9sAOcwqVn0mdX7aSiiZKcbbnQ/viewform?usp=pp_url','&entry.1686273796=','','&entry.251445465=',''],
+        ['24','福生池田_代理入力','1LxoIi3b4xMU6ayDyzubqZPejc6AOWJIdx2wSRWJopho','https://docs.google.com/forms/d/e/1FAIpQLScWX7ShhGUdhoAlaneWz6IPw1G0ywDTZOKXRIdU_yAn2awUhA/viewform?usp=pp_url','&entry.711646848=','','&entry.1524962983=',''],
+        ['25','福生法城_代理入力','1IsqwOANhyo-xpxGLzAi74Muvt1qSN1c8q6hQsvLfV5U','https://docs.google.com/forms/d/e/1FAIpQLSeuPgxLI8NIyHUf-dGHTlFcmI1TL7abcJDpsVqo6NndLsOIcw/viewform?usp=pp_url','&entry.870090202=','','&entry.438451996=',''],
+        ['26','武蔵野広宣_代理入力','','','','','',''],
+        ['27','横田希望_代理入力','','','','','',''],
+        ['28','青春東福生_代理入力','','','','','',''],
+        ['29','加美平王城_代理入力','','','','','',''],
+        ['30','熊川本陣_代理入力','','','','','',''],
+        ['31','創価_代理入力','','','','','',''],
+        ['32','富士見完勝_代理入力','','','','','',''],
+        ['33','富士見栄光_代理入力','','','','','',''],      ];
+      return           googleFormUrl = ValuesFM[1][3]
+                         + ValuesFM[1][4] + encodeURIComponent(userId)
+                         + ValuesFM[1][5] + encodeURIComponent(displayName);
+// ここにGoogle FormのURLを生成するロジックを記述
+    }
+
 
     // ページ読み込み完了後に実行
     window.addEventListener('load', main);
@@ -225,7 +225,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-        処理中です。<br>数秒間お待ちください... 121
+        処理中です。<br>数秒間お待ちください... 122
     </span>
   </body>
 </html>
