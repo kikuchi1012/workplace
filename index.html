@@ -76,7 +76,8 @@
 
                 case '01':
                   let ValuesCh01 = getEntryArray_01();
-                  shibu_EP = ValuesCh01[1][4];
+//                  shibu_EP = ValuesCh01[1][4];
+                  shibu_EP = '&entry.664084233=';
                   for(i=1;i<ValuesCh01.length;i++) {
                     if(ValuesCh01[i][2] == '地区（'+shibu+'支部・第１管区）') {
                       chiku_EP = ValuesCh01[i][4];
@@ -94,9 +95,9 @@
                 }    
               let dd = Number(src1);
               googleFormUrl = ValuesFM[dd+3][3]
-//                            + shibu_EP + encodeURIComponent(shibu)
+                            + shibu_EP + encodeURIComponent(shibu)
 //                            + chiku_EP + encodeURIComponent(chiku)
-                            + '&entry.664084233=' + encodeURIComponent(shibu)
+//                            + '&entry.664084233=' + encodeURIComponent(shibu)
                             + '&entry.1142622364=' + encodeURIComponent(chiku)
                             + ValuesFM[dd+3][4] + encodeURIComponent(userId)
                             + ValuesFM[dd+3][7] + encodeURIComponent(userId);
@@ -303,7 +304,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-        処理中です。<br>数秒間お待ちください... 165
+        処理中です。<br>数秒間お待ちください... 166
     </span>
   </body>
 </html>
