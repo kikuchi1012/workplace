@@ -68,8 +68,24 @@
                   
                   break;
                 case '02':
+                  let ValuesCh02 = getEntryArray_02();
+                  shibu_EP = ValuesCh02[1][4];
+                  for(i=1;i<ValuesCh02.length;i++) {
+                    if(ValuesCh02[i][2] == '地区（'+shibu+'支部・第２管区）') {
+                      chiku_EP = ValuesCh02[i][4];
+                      break;
+                    }
+                  }
                   break;
                 case '03':
+                  let ValuesCh03 = getEntryArray_03();
+                  shibu_EP = ValuesCh03[1][4];
+                  for(i=1;i<ValuesCh03.length;i++) {
+                    if(ValuesCh03[i][2] == '地区（'+shibu+'支部・第３管区）') {
+                      chiku_EP = ValuesCh03[i][4];
+                      break;
+                    }
+                  }
                   break;
                 default:
                   break;
@@ -385,7 +401,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-        処理中です。<br>数秒間お待ちください... 172
+        処理中です。<br>数秒間お待ちください... 173
     </span>
   </body>
 </html>
