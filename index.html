@@ -25,7 +25,7 @@
 //        const source = urlParams.get('from') || 'unknown';
           const source = urlParams.get('from');
 
-          const url = "https://script.google.com/macros/s/AKfycbyY_pPMwiy3zcQ3-qFF3-rpX9J5_ffoBlRggbxEJJG4bxRRXtnKz1wFT3QK2BoB69ewdQ/exec";
+          const url = "https://script.google.com/macros/s/AKfycbydk8VC3LaciZ4POMOAFcj43fouiTPT4wi_ymxQZ7WkJ7F_Zgb6dCFaxVv7qs73x7AWXw/exec";
 
           const sendData = {
             userId: userId,
@@ -52,21 +52,23 @@
             const data = await response.json();
             let shibu = data.shibu;
             let chiku = data.chiku;
+            let sekinin = data.seki;
             let ms00 = data.ms00;
             let ms01 = data.ms01;
 
             let shibu_EP, chiku_EP;
 
             if(src2 === 'C') {
-              if(userId == 'Ucb36d4533207c3ce010ba7012cb39832') { // 特定のユーザーIDの場合は別のURLを生成
-                 googleFormUrl = ValuesFM[12][3]
-                               + ValuesFM[12][4] + encodeURIComponent(userId)
-                               + ValuesFM[12][8] + encodeURIComponent(ms00)
-                               + ValuesFM[12][9] + encodeURIComponent(ms01);
-              } else {
+//              if(userId == 'Ucb36d4533207c3ce010ba7012cb39832') { // 特定のユーザーIDの場合は別のURLを生成
+              if(seki == '該当なし') { // 特定のユーザーIDの場合は別のURLを生成
                 googleFormUrl = ValuesFM[10][3]
                               + ValuesFM[10][4] + encodeURIComponent(userId)
                               + ValuesFM[10][8] + encodeURIComponent(ms00);
+              } else {
+                googleFormUrl = ValuesFM[12][3]
+                              + ValuesFM[12][4] + encodeURIComponent(userId)
+                              + ValuesFM[12][8] + encodeURIComponent(ms00)
+                              + ValuesFM[12][9] + encodeURIComponent(ms01);
               }
             }
             if(src2 === 'F') {
@@ -426,7 +428,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 226
+       処理中です。<br>数秒間お待ちください... 227
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
