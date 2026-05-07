@@ -37,8 +37,9 @@
           //    src2 = 'X';
 
           let ValuesFM = getValuesFM();
-          let shibu;
-          let chiku;
+          let shibu0;
+          let chiku0;
+          let shibu2 = getshibu(userId);
 
           if(src2 === 'C' || src2 === 'D' || src2 === 'E' || src2 === 'F') { // 代理入力の場合のみGASにデータを送信してGoogleフォームのURLを生成
             const response = await fetch(url, {
@@ -55,7 +56,7 @@
             let sekinin = data.seki;
             let ms00 = data.ms00;
             let ms01 = data.ms01;
-
+            
             let shibu_EP, chiku_EP;
 
             if(src2 === 'C') {
@@ -115,7 +116,7 @@
                 }    
               let dd = Number(src1);
               googleFormUrl = ValuesFM[dd+3][3]
-                            + shibu_EP + encodeURIComponent(shibu)
+                            + shibu_EP + encodeURIComponent(shibu2)
                             + chiku_EP + encodeURIComponent(chiku)
 //                            + '&entry.664084233=' + encodeURIComponent(shibu)
 //                            + '&entry.1142622364=' + encodeURIComponent(chiku)
@@ -230,6 +231,18 @@
         }
 // ここにGoogle FormのURLを生成するロジックを記述
         return googleFormUrl;          
+    }
+    function getshibu(userId) {
+      const response = await fetch('https://github.io');
+      const masterData = await response.json();
+      let shibu;
+      for(i=0;i<masterData.length;i++) {
+        if(masterData[i].userId == userId) {
+          shibu = masterData[i].shibu;
+          break;
+        }
+      }
+      return shibu;
     }
     function getValuesFM() {
       const ValuesFM = [
@@ -428,7 +441,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 235
+       処理中です。<br>数秒間お待ちください... 236
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
