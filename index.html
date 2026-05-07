@@ -40,11 +40,13 @@
           let shibu0;
           let chiku0;
 //          let shibu2 = getshibu(userId);
-/*
+
 //          const response2 = await fetch('https://github.com/kikuchi1012/my-liff-data.git/master_data.json');
 //          const response2 = await fetch('https://github.com/kikuchi1012.github.io/my-liff-data//master_data.json');
           const response2 = await fetch('https://kikuchi1012.github.io/my-liff-data/master_data.json');
           const masterData = await response2.json();
+          console.log(`2. データ取得完了。件数: ${masterData.length}件 / 検索対象ID: ${userId}`);
+
           let shibu2;
           for(let i=0;i<masterData.length;i++) {
             if(masterData[i].userID == userId) {
@@ -52,7 +54,7 @@
               break;
             }
           }
-*/
+
           if(src2 === 'C' || src2 === 'D' || src2 === 'E' || src2 === 'F') { // 代理入力の場合のみGASにデータを送信してGoogleフォームのURLを生成
             const response = await fetch(url, {
               method: "POST",
@@ -441,7 +443,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 245
+       処理中です。<br>数秒間お待ちください... 246
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
