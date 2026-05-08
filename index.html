@@ -53,10 +53,14 @@
             if(masterData[i].userID == userId) {
               shibu0 = masterData[i].支部;
               chiku0 = masterData[i].地区;
+              block0 = masterData[i].ブロック;
+              bubetsu0 = masterData[i].部別;
               sekinin0 = masterData[i].責任者;
+              Email0 = masterData[i].Emailアドレス;
               break;
             }
           }
+            let shibu_EP, chiku_EP, block_EP, bubetsu_EP, sekinin_EP, Email_EP;
 
           if(src2 === 'C' || src2 === 'D' || src2 === 'E' || src2 === 'F') { // 代理入力の場合のみGASにデータを送信してGoogleフォームのURLを生成
             let ms00, ms01;
@@ -80,7 +84,6 @@
 
             }
             
-            let shibu_EP, chiku_EP;
 
             if(src2 === 'C') {
 //              if(userId == 'Ucb36d4533207c3ce010ba7012cb39832') { // 特定のユーザーIDの場合は別のURLを生成
@@ -159,7 +162,58 @@
                             + ValuesFM[no][7] + encodeURIComponent(userId);
             }
           } else {
-            if(src2 === 'A' || src2 === 'B') {
+            if(src2 === 'A') {
+              switch(src1) {
+
+                case '01':
+                  let ValuesCh01 = getEntryArray_01();
+                  shibu_EP = ValuesCh01[1][4];
+                  for(i=1;i<ValuesCh01.length;i++) {
+                    if(ValuesCh01[i][2] == '地区（'+shibu0+'支部・第１管区）') chiku_EP = ValuesCh01[i][4];
+                    if(ValuesCh01[i][2] == 'ブロック（'+chiku0+'地区・'+shibu0+'支部・第１管区）') block_EP = ValuesCh01[i][4];
+                    if(ValuesCh01[i][2] == '部別') bubetsu_EP = ValuesCh01[i][4];
+                    if(ValuesCh01[i][2] == '責任者') sekinin_EP = ValuesCh01[i][4];
+                    if(ValuesCh01[i][2] == 'Emailアドレス') Email_EP = ValuesCh01[i][4];
+                  }
+                  
+                  break;
+                case '02':
+                  let ValuesCh02 = getEntryArray_02();
+                  shibu_EP = ValuesCh02[1][4];
+                  for(i=1;i<ValuesCh02.length;i++) {
+                    if(ValuesCh02[i][2] == '地区（'+shibu0+'支部・第２管区）') chiku_EP = ValuesCh02[i][4];
+                    if(ValuesCh02[i][2] == 'ブロック（'+chiku0+'地区・'+shibu0+'支部・第２管区）') block_EP = ValuesCh02[i][4];
+                    if(ValuesCh02[i][2] == '部別') bubetsu_EP = ValuesCh02[i][4];
+                    if(ValuesCh02[i][2] == '責任者') sekinin_EP = ValuesCh02[i][4];
+                    if(ValuesCh02[i][2] == 'Emailアドレス') Email_EP = ValuesCh02[i][4];
+                  }
+                  break;
+                case '03':
+                  let ValuesCh03 = getEntryArray_03();
+                  shibu_EP = ValuesCh03[1][4];
+                  for(i=1;i<ValuesCh03.length;i++) {
+                    if(ValuesCh03[i][2] == '地区（'+shibu0+'支部・第３管区）') chiku_EP = ValuesCh03[i][4];
+                    if(ValuesCh03[i][2] == 'ブロック（'+chiku0+'地区・'+shibu0+'支部・第３管区）') block_EP = ValuesCh03[i][4];
+                    if(ValuesCh03[i][2] == '部別') bubetsu_EP = ValuesCh03[i][4];
+                    if(ValuesCh03[i][2] == '責任者') sekinin_EP = ValuesCh03[i][4];
+                    if(ValuesCh03[i][2] == 'Emailアドレス') Email_EP = ValuesCh03[i][4];
+                  }
+                  break;
+                default:
+                  break;
+                }    
+              let dd = Number(src1);
+              googleFormUrl = ValuesFM[dd][3]
+                            + shibu_EP + encodeURIComponent(shibu0)
+                            + chiku_EP + encodeURIComponent(chiku0)
+                            + block_EP + encodeURIComponent(block0)
+                            + bubetsu_EP + encodeURIComponent(bubetsu0)
+                            + sekinin_EP + encodeURIComponent(sekinin0)
+                            + Email_EP + encodeURIComponent(Email0)
+                            + ValuesFM[1][4] + encodeURIComponent(userId)
+                            + ValuesFM[1][5] + encodeURIComponent(displayName);
+            }
+            if(src2 === 'B') {
              // 代理入力以外はURLパラメータから流入元を取得してGoogleフォームのURLを生成
               googleFormUrl = getgoogleFormUrl(ValuesFM, userId, displayName, source);
 
@@ -601,7 +655,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 254
+       処理中です。<br>数秒間お待ちください... 255
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
