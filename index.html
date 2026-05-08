@@ -37,8 +37,7 @@
           //    src2 = 'X';
 
           let ValuesFM = getValuesFM();
-          let shibu0;
-          let chiku0;
+
 //          let shibu2 = getshibu(userId);
 //          console.log(`1. データ取得開始。 検索対象ID: ${userId0}`);
           const response2 = await fetch('https://kikuchi1012.github.io/my-liff-data/master_data.json');
@@ -47,35 +46,45 @@
 //           console.log(masterData); // 配列 [...] になっているか確認
 //          console.log(masterData[0].userID); // 配列 [...] になっているか確認
 //          console.log(masterData[0].支部); // 配列 [...] になっているか確認
-          let shibu2;
+          let shibu0;
+          let chiku0;
+          let sekinin0;
           for(let i=0;i<masterData.length;i++) {
             if(masterData[i].userID == userId) {
-              shibu2 = masterData[i].支部;
+              shibu0 = masterData[i].支部;
+              chiku0 = masterData[i].地区;
+              sekinin0 = masterData[i].責任者;
               break;
             }
           }
 
           if(src2 === 'C' || src2 === 'D' || src2 === 'E' || src2 === 'F') { // 代理入力の場合のみGASにデータを送信してGoogleフォームのURLを生成
-            const response = await fetch(url, {
-              method: "POST",
-              body: JSON.stringify(sendData),
-            // リダイレクトを追跡する設定を追加
-              redirect: "follow",
-              mode: "cors"
-            });
+            let ms00, ms01;
+            if(src2 === 'C' || src2 === 'F') {
 
-            const data = await response.json();
-            let shibu = data.shibu;
-            let chiku = data.chiku;
-            let sekinin = data.seki;
-            let ms00 = data.ms00;
-            let ms01 = data.ms01;
+              const response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(sendData),
+              // リダイレクトを追跡する設定を追加
+                redirect: "follow",
+                mode: "cors"
+              });
+
+              const data = await response.json();
+//              let shibux = data.shibu;
+//              let chikux = data.chiku;
+//              let sekininx = data.seki;
+              ms00 = data.ms00;
+              ms01 = data.ms01;
+
+
+            }
             
             let shibu_EP, chiku_EP;
 
             if(src2 === 'C') {
 //              if(userId == 'Ucb36d4533207c3ce010ba7012cb39832') { // 特定のユーザーIDの場合は別のURLを生成
-              if(sekinin == '該当なし') { // 特定のユーザーIDの場合は別のURLを生成
+              if(sekinin0 == '該当なし') { // 特定のユーザーIDの場合は別のURLを生成
                 googleFormUrl = ValuesFM[10][3]
                               + ValuesFM[10][4] + encodeURIComponent(userId)
                               + ValuesFM[10][8] + encodeURIComponent(ms00);
@@ -98,7 +107,7 @@
                   let ValuesCh01 = getEntryArray_01();
                   shibu_EP = ValuesCh01[1][4];
                   for(i=1;i<ValuesCh01.length;i++) {
-                    if(ValuesCh01[i][2] == '地区（'+shibu+'支部・第１管区）') {
+                    if(ValuesCh01[i][2] == '地区（'+shibu0+'支部・第１管区）') {
                       chiku_EP = ValuesCh01[i][4];
                       break;
                     }
@@ -109,7 +118,7 @@
                   let ValuesCh02 = getEntryArray_02();
                   shibu_EP = ValuesCh02[1][4];
                   for(i=1;i<ValuesCh02.length;i++) {
-                    if(ValuesCh02[i][2] == '地区（'+shibu+'支部・第２管区）') {
+                    if(ValuesCh02[i][2] == '地区（'+shibu0+'支部・第２管区）') {
                       chiku_EP = ValuesCh02[i][4];
                       break;
                     }
@@ -119,7 +128,7 @@
                   let ValuesCh03 = getEntryArray_03();
                   shibu_EP = ValuesCh03[1][4];
                   for(i=1;i<ValuesCh03.length;i++) {
-                    if(ValuesCh03[i][2] == '地区（'+shibu+'支部・第３管区）') {
+                    if(ValuesCh03[i][2] == '地区（'+shibu0+'支部・第３管区）') {
                       chiku_EP = ValuesCh03[i][4];
                       break;
                     }
@@ -130,8 +139,8 @@
                 }    
               let dd = Number(src1);
               googleFormUrl = ValuesFM[dd+3][3]
-                            + shibu_EP + encodeURIComponent(shibu2)
-                            + chiku_EP + encodeURIComponent(chiku)
+                            + shibu_EP + encodeURIComponent(shibu0)
+                            + chiku_EP + encodeURIComponent(chiku0)
 //                            + '&entry.664084233=' + encodeURIComponent(shibu)
 //                            + '&entry.1142622364=' + encodeURIComponent(chiku)
                             + ValuesFM[dd+3][4] + encodeURIComponent(userId)
@@ -142,10 +151,10 @@
               let length = ValuesFM.length;
               let no;
               for(i=1;i<length;i++) {
-                if(shibu == ValuesFM[i][1].split('_')[0]) no = i;
+                if(shibu0 == ValuesFM[i][1].split('_')[0]) no = i;
               }
               googleFormUrl = ValuesFM[no][3]
-                            + ValuesFM[no][6] + encodeURIComponent(chiku)
+                            + ValuesFM[no][6] + encodeURIComponent(chiku0)
                             + ValuesFM[no][4] + encodeURIComponent(userId)
                             + ValuesFM[no][7] + encodeURIComponent(userId);
             }
@@ -443,7 +452,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 250
+       処理中です。<br>数秒間お待ちください... 251
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
