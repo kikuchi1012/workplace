@@ -119,7 +119,7 @@
                   response2 = await fetch(nocacheUrl);
                   masterEP = await response2.json();
                    shibu_EP = masterEP[0].EP;
-                  for(i=1;i<Object.keys(masterEP).length;i++) {
+                  for(let i=1;i<Object.keys(masterEP).length;i++) {
                     if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') {
                       chiku_EP = masterEP[i].EP;
                       break;
@@ -142,7 +142,7 @@
                   response2 = await fetch(nocacheUrl);
                   masterEP = await response2.json();
                    shibu_EP = masterEP[0].EP;
-                  for(i=1;i<Object.keys(masterEP).length;i++) {
+                  for(let i=1;i<Object.keys(masterEP).length;i++) {
                     if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') {
                       chiku_EP = masterEP[i].EP;
                       break;
@@ -165,7 +165,7 @@
                   response2 = await fetch(nocacheUrl);
                   masterEP = await response2.json();
                    shibu_EP = masterEP[0].EP;
-                  for(i=1;i<Object.keys(masterEP).length;i++) {
+                  for(let i=1;i<Object.keys(masterEP).length;i++) {
                     if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') {
                       chiku_EP = masterEP[i].EP;
                       break;
@@ -199,7 +199,7 @@
             if(src2 === 'E') {
               let length = ValuesFM.length;
               let no;
-              for(i=1;i<length;i++) {
+              for(let i=1;i<length;i++) {
                 if(shibu0 == ValuesFM[i][1].split('_')[0]) no = i;
               }
               googleFormUrl = ValuesFM[no][3]
@@ -743,7 +743,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 271
+       処理中です。<br>数秒間お待ちください... 272
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
