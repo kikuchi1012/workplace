@@ -44,6 +44,8 @@
           let nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
           let response2 = await fetch(nocacheUrl);
           const masterData = await response2.json();
+
+          let masterEP;
 //          console.log(`2. データ取得完了。件数: ${masterData.length}件 / 検索対象ID: ${userId0}`);
 //           console.log(masterData); // 配列 [...] になっているか確認
 //          console.log(masterData[0].userID); // 配列 [...] になっているか確認
@@ -115,11 +117,11 @@
                   baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第１管区所属組織代理登録_SubData.json';
                   nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
                   response2 = await fetch(nocacheUrl);
-                  const masterEP_01 = await response2.json();
-                   shibu_EP = masterEP_01[0].EP;
-                  for(i=1;i<Object.keys(masterEP_01).length;i++) {
-                    if(masterEP_01[i].title == '地区（'+shibu0+'支部・第１管区）') {
-                      chiku_EP = masterEP_01[i].EP;
+                  masterEP = await response2.json();
+                   shibu_EP = masterEP[0].EP;
+                  for(i=1;i<Object.keys(masterEP).length;i++) {
+                    if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') {
+                      chiku_EP = masterEP[i].EP;
                       break;
                     }
                   }
@@ -135,6 +137,18 @@
 */                  
                   break;
                 case '02':
+                  baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第２管区所属組織代理登録_SubData.json';
+                  nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
+                  response2 = await fetch(nocacheUrl);
+                  masterEP = await response2.json();
+                   shibu_EP = masterEP[0].EP;
+                  for(i=1;i<Object.keys(masterEP).length;i++) {
+                    if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') {
+                      chiku_EP = masterEP[i].EP;
+                      break;
+                    }
+                  }
+/*
                   let ValuesCh05 = getEntryArray_05();
                   shibu_EP = ValuesCh05[1][4];
                   for(i=1;i<ValuesCh05.length;i++) {
@@ -143,8 +157,22 @@
                       break;
                     }
                   }
+*/
                   break;
                 case '03':
+                  baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第３管区所属組織代理登録_SubData.json';
+                  nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
+                  response2 = await fetch(nocacheUrl);
+                  masterEP = await response2.json();
+                   shibu_EP = masterEP[0].EP;
+                  for(i=1;i<Object.keys(masterEP).length;i++) {
+                    if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') {
+                      chiku_EP = masterEP[i].EP;
+                      break;
+                    }
+                  }
+
+                /*
                   let ValuesCh06 = getEntryArray_06();
                   shibu_EP = ValuesCh06[1][4];
                   for(i=1;i<ValuesCh06.length;i++) {
@@ -153,6 +181,7 @@
                       break;
                     }
                   }
+*/
                   break;
                 default:
                   break;
@@ -183,7 +212,20 @@
               switch(src1) {
 
                 case '01':
-                  let ValuesCh01 = getEntryArray_01();
+                  baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第１管区所属組織登録_SubData.json';
+                  nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
+                  response2 = await fetch(nocacheUrl);
+                  masterEP = await response2.json();
+                   shibu_EP = masterEP[0].EP;
+                  for(i=1;i<Object.keys(masterEP).length;i++) {
+                    if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') hiku_EP = masterEP[i].EP;
+                    if(masterEP[i].title == 'ブロック（'+chiku0+'地区・'+shibu0+'支部・第１管区）') block_EP = masterEP[i].EP;
+                    if(masterEP[i].title == '部別') bubetsu_EP = masterEP[i].EP;
+                    if(masterEP[i].title == '責任者') sekinin_EP = masterEP[i].EP;
+                    if(masterEP[i].title == 'Emailアドレス') Email_EP = masterEP[i].EP;
+                  }
+/*
+                let ValuesCh01 = getEntryArray_01();
                   shibu_EP = ValuesCh01[1][4];
                   for(i=1;i<ValuesCh01.length;i++) {
                     if(ValuesCh01[i][2] == '地区（'+shibu0+'支部・第１管区）') chiku_EP = ValuesCh01[i][4];
@@ -192,7 +234,7 @@
                     if(ValuesCh01[i][2] == '責任者') sekinin_EP = ValuesCh01[i][4];
                     if(ValuesCh01[i][2] == 'Emailアドレス') Email_EP = ValuesCh01[i][4];
                   }
-                  
+*/                  
                   break;
                 case '02':
                   let ValuesCh02 = getEntryArray_02();
@@ -672,7 +714,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 265
+       処理中です。<br>数秒間お待ちください... 266
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
