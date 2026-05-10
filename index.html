@@ -73,6 +73,7 @@
           if(src2 === 'C' || src2 === 'D' || src2 === 'E' || src2 === 'F') { // 代理入力の場合のみGASにデータを送信してGoogleフォームのURLを生成
 
             if(src2 === 'C' || src2 === 'F') {
+              console.log('response送信前のsendData:', sendData); // 送信前のデータを確認
 
               const response = await fetch(url, {
                 method: "POST",
@@ -81,8 +82,9 @@
                 redirect: "follow",
                 mode: "cors"
               });
-
+              console.log(response);
               const data = await response.json();
+              console.log(data);
 //              let shibux = data.shibu;
 //              let chikux = data.chiku;
 //              let sekininx = data.seki;
@@ -92,6 +94,7 @@
 
 
             }
+
             if(src2 === 'C') {
 //              if(userId == 'Ucb36d4533207c3ce010ba7012cb39832') { // 特定のユーザーIDの場合は別のURLを生成
               if(sekinin0 == '該当なし') { // 特定のユーザーIDの場合は別のURLを生成
@@ -756,7 +759,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 277
+       処理中です。<br>数秒間お待ちください... 278
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
