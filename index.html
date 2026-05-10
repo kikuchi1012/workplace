@@ -81,10 +81,10 @@
 
               const response = await fetch(url, {
                 method: "POST",
-                body: JSON.stringify(sendData),
+                body: JSON.stringify(sendData)
               // リダイレクトを追跡する設定を追加
-                redirect: "follow",
-                mode: "cors"
+//                redirect: "follow",
+//                mode: "cors"
               });
               const data = await response.json();
               let statusX = data.status;
@@ -761,7 +761,7 @@
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
       <!-- 処理中です。<br>数秒間お待ちください... 283 -->
-       メンテナンス中です... 298
+       メンテナンス中です... 299
     </span>
   </body>
 </html>
