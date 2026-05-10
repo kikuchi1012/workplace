@@ -70,27 +70,6 @@
             let shibu_EP, chiku_EP, block_EP, bubetsu_EP, sekinin_EP, Email_EP;
 
           if(src2 === 'C' || src2 === 'D' || src2 === 'E' || src2 === 'F') { // 代理入力の場合のみGASにデータを送信してGoogleフォームのURLを生成
-            let ms00, ms01;
-            if(src2 === 'C' || src2 === 'F') {
-
-              const response = await fetch(url, {
-                method: "POST",
-                body: JSON.stringify(sendData),
-              // リダイレクトを追跡する設定を追加
-                redirect: "follow",
-                mode: "cors"
-              });
-
-              const data = await response.json();
-//              let shibux = data.shibu;
-//              let chikux = data.chiku;
-//              let sekininx = data.seki;
-              ms00 = data.ms00 +' '+shibu0 +' '+ chiku0 +' '+ block0 +' '+ bubetsu0 +' '+ sekinin0 +' '+ Email0;
-              ms01 = data.ms01;
-
-
-            }
-            
 
             if(src2 === 'C') {
 //              if(userId == 'Ucb36d4533207c3ce010ba7012cb39832') { // 特定のユーザーIDの場合は別のURLを生成
@@ -137,7 +116,8 @@
 */                  
                   break;
                 case '02':
-                  baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第２管区所属組織代理登録_SubData.json';
+/*
+                baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第２管区所属組織代理登録_SubData.json';
                   nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
                   response2 = await fetch(nocacheUrl);
                   masterEP = await response2.json();
@@ -148,7 +128,8 @@
                       break;
                     }
                   }
-/*
+*/
+
                   let ValuesCh05 = getEntryArray_05();
                   shibu_EP = ValuesCh05[1][4];
                   for(i=1;i<ValuesCh05.length;i++) {
@@ -157,7 +138,7 @@
                       break;
                     }
                   }
-*/
+
                   break;
                 case '03':
                   baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第３管区所属組織代理登録_SubData.json';
@@ -207,6 +188,27 @@
                             + ValuesFM[no][4] + encodeURIComponent(userId)
                             + ValuesFM[no][7] + encodeURIComponent(userId);
             }
+            let ms00, ms01;
+            if(src2 === 'C' || src2 === 'F') {
+
+              const response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(sendData),
+              // リダイレクトを追跡する設定を追加
+                redirect: "follow",
+                mode: "cors"
+              });
+
+              const data = await response.json();
+//              let shibux = data.shibu;
+//              let chikux = data.chiku;
+//              let sekininx = data.seki;
+              ms00 = data.ms00 +' '+shibu0 +' '+ chiku0 +' '+ block0 +' '+ bubetsu0 +' '+ sekinin0 +' '+ Email0;
+              ms01 = data.ms01;
+
+
+            }
+            
           } else {
             if(src2 === 'A') {
               switch(src1) {
@@ -743,7 +745,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 273
+       処理中です。<br>数秒間お待ちください... 274
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
