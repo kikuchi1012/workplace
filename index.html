@@ -11,43 +11,6 @@
       let googleFormUrl; // GoogleフォームのURLを格納する変数
 
 
-/*
-          const sendData = {
-            userId: 'Ucb36d4533207c3ce010ba7012cb39832',
-            userName: '菊池',
-            source: '02_C'
-          };
-
-
-//      if(src2 === 'C' || src2 === 'F') {
-              console.log('response送信前のsendData:', sendData); // 送信前のデータを確認
-
-              const response = await fetch(url, {
-                method: "POST",
-                body: JSON.stringify(sendData),
-              // リダイレクトを追跡する設定を追加
-                redirect: "follow",
-                mode: "cors"
-              });
-              console.log(response);
-              const data = await response.json();
-              console.log(data);
-//              let shibux = data.shibu;
-//              let chikux = data.chiku;
-//              let sekininx = data.seki;
-//              ms00 = data.ms00 +' '+shibu0 +' '+ chiku0 +' '+ block0 +' '+ bubetsu0 +' '+ sekinin0 +' '+ Email0;
-              ms00 = data.ms00;
-              ms01 = data.ms01;
-              console.log(ms00);
-//            }
-
-
-*/
-
-
-
-
-
       try {
         await liff.init({ liffId: "2009679948-qAAFdnlQ" }); // 自身のLIFF IDに書き換え
         if (!liff.isLoggedIn()) {
@@ -113,7 +76,6 @@
 
           if(src2 === 'C' || src2 === 'D' || src2 === 'E' || src2 === 'F') { // 代理入力の場合のみGASにデータを送信してGoogleフォームのURLを生成
 
-                googleFormUrl =  'https://docs.google.com/forms/d/e/1FAIpQLScDKdMk8E6eA0bA-rut3wYGG2lxwJBAO5ZdLChv_gDtJ6b0rQ/viewform?usp=pp_url';
 
             if(src2 === 'C' || src2 === 'F') {
 
@@ -139,7 +101,7 @@
                               + ValuesFM[10][4] + encodeURIComponent(userId)
                               + ValuesFM[10][8] + encodeURIComponent(ms00);
               } else {
-                googleFormUrl =  'https://docs.google.com/forms/d/e/1FAIpQLScDKdMk8E6eA0bA-rut3wYGG2lxwJBAO5ZdLChv_gDtJ6b0rQ/viewform?usp=pp_url' // ValuesFM[12][3]
+                googleFormUrl = ValuesFM[12][3]
                               + ValuesFM[12][4] + encodeURIComponent(userId)
                               + ValuesFM[12][8] + encodeURIComponent(ms00)
                               + ValuesFM[12][9] + encodeURIComponent(ms01);
@@ -791,7 +753,7 @@
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
       <!-- 処理中です。<br>数秒間お待ちください... 283 -->
-       メンテナンス中です... 290
+       メンテナンス中です... 291
     </span>
   </body>
 </html>
