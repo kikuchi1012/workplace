@@ -93,6 +93,7 @@
               switch(src1) {
 
                 case '01':
+/*
                   baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第１管区所属組織代理登録_SubData.json';
                   nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
                   response2 = await fetch(nocacheUrl);
@@ -104,7 +105,8 @@
                       break;
                     }
                   }
-/*         
+*/
+         
                   let ValuesCh04 = getEntryArray_04();
                   shibu_EP = ValuesCh04[1][4];
                   for(i=1;i<ValuesCh04.length;i++) {
@@ -113,7 +115,7 @@
                       break;
                     }
                   }
-*/                  
+                  
                   break;
                 case '02':
 /*
@@ -141,6 +143,7 @@
 
                   break;
                 case '03':
+/*
                   baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第３管区所属組織代理登録_SubData.json';
                   nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
                   response2 = await fetch(nocacheUrl);
@@ -152,8 +155,8 @@
                       break;
                     }
                   }
+*/
 
-                /*
                   let ValuesCh06 = getEntryArray_06();
                   shibu_EP = ValuesCh06[1][4];
                   for(i=1;i<ValuesCh06.length;i++) {
@@ -162,7 +165,7 @@
                       break;
                     }
                   }
-*/
+
                   break;
                 default:
                   break;
@@ -203,7 +206,8 @@
 //              let shibux = data.shibu;
 //              let chikux = data.chiku;
 //              let sekininx = data.seki;
-              ms00 = data.ms00 +' '+shibu0 +' '+ chiku0 +' '+ block0 +' '+ bubetsu0 +' '+ sekinin0 +' '+ Email0;
+//              ms00 = data.ms00 +' '+shibu0 +' '+ chiku0 +' '+ block0 +' '+ bubetsu0 +' '+ sekinin0 +' '+ Email0;
+              ms00 = data.ms00;
               ms01 = data.ms01;
 
 
@@ -214,6 +218,7 @@
               switch(src1) {
 
                 case '01':
+                /*
                   baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第１管区所属組織登録_SubData.json';
                   nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
                   response2 = await fetch(nocacheUrl);
@@ -226,7 +231,8 @@
                     if(masterEP[i].title == '責任者') sekinin_EP = masterEP[i].EP;
                     if(masterEP[i].title == 'Emailアドレス') Email_EP = masterEP[i].EP;
                   }
-/*
+                */
+
                 let ValuesCh01 = getEntryArray_01();
                   shibu_EP = ValuesCh01[1][4];
                   for(i=1;i<ValuesCh01.length;i++) {
@@ -236,9 +242,10 @@
                     if(ValuesCh01[i][2] == '責任者') sekinin_EP = ValuesCh01[i][4];
                     if(ValuesCh01[i][2] == 'Emailアドレス') Email_EP = ValuesCh01[i][4];
                   }
-*/                  
+                  
                   break;
                 case '02':
+                /*
                   baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第２管区所属組織登録_SubData.json';
                   nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
                   response2 = await fetch(nocacheUrl);
@@ -251,7 +258,8 @@
                     if(masterEP[i].title == '責任者') sekinin_EP = masterEP[i].EP;
                     if(masterEP[i].title == 'Emailアドレス') Email_EP = masterEP[i].EP;
                   }
-/*
+*/
+
                   let ValuesCh02 = getEntryArray_02();
                   shibu_EP = ValuesCh02[1][4];
                   for(i=1;i<ValuesCh02.length;i++) {
@@ -261,9 +269,10 @@
                     if(ValuesCh02[i][2] == '責任者') sekinin_EP = ValuesCh02[i][4];
                     if(ValuesCh02[i][2] == 'Emailアドレス') Email_EP = ValuesCh02[i][4];
                   }
-*/
+
                   break;
                 case '03':
+                  /*
                   baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第３管区所属組織登録_SubData.json';
                   nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
                   response2 = await fetch(nocacheUrl);
@@ -276,7 +285,8 @@
                     if(masterEP[i].title == '責任者') sekinin_EP = masterEP[i].EP;
                     if(masterEP[i].title == 'Emailアドレス') Email_EP = masterEP[i].EP;
                   }
-/*
+                  */
+
                   let ValuesCh03 = getEntryArray_03();
                   shibu_EP = ValuesCh03[1][4];
                   for(i=1;i<ValuesCh03.length;i++) {
@@ -286,7 +296,7 @@
                     if(ValuesCh03[i][2] == '責任者') sekinin_EP = ValuesCh03[i][4];
                     if(ValuesCh03[i][2] == 'Emailアドレス') Email_EP = ValuesCh03[i][4];
                   }
-*/
+
                   break;
                 default:
                   break;
@@ -745,7 +755,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 274
+       処理中です。<br>数秒間お待ちください... 275
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
