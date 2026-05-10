@@ -40,9 +40,9 @@
 
 //          let shibu2 = getshibu(userId);
 //          console.log(`1. データ取得開始。 検索対象ID: ${userId0}`);
-          const baseUrl = 'https://kikuchi1012.github.io/my-liff-data/userList.json';
-          const nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
-          const response2 = await fetch(nocacheUrl);
+          let baseUrl = 'https://kikuchi1012.github.io/my-liff-data/userList.json';
+          let nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
+          let response2 = await fetch(nocacheUrl);
           const masterData = await response2.json();
 //          console.log(`2. データ取得完了。件数: ${masterData.length}件 / 検索対象ID: ${userId0}`);
 //           console.log(masterData); // 配列 [...] になっているか確認
@@ -112,6 +112,10 @@
               switch(src1) {
 
                 case '01':
+                  baseUrl = 'https://kikuchi1012.github.io/my-liff-data/第１管区所属組織代理登録_SubData.json';
+                  nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
+                  response2 = await fetch(nocacheUrl);
+                  const masterEP_01 = await response2.json();
                   let ValuesCh04 = getEntryArray_04();
                   shibu_EP = ValuesCh04[1][4];
                   for(i=1;i<ValuesCh04.length;i++) {
@@ -660,7 +664,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 262
+       処理中です。<br>数秒間お待ちください... 263
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
