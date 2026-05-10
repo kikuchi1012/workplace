@@ -116,6 +116,14 @@
                   nocacheUrl = `${baseUrl}?t=${new Date().getTime()}`;
                   response2 = await fetch(nocacheUrl);
                   const masterEP_01 = await response2.json();
+                   shibu_EP = masterEP_01[0].EP;
+                  for(i=1;i<Object.keys(masterEP_01).length;i++) {
+                    if(masterEP_01[i].title == '地区（'+shibu0+'支部・第１管区）') {
+                      chiku_EP = masterEP_01[i].block_EP;
+                      break;
+                    }
+                  }
+/*         
                   let ValuesCh04 = getEntryArray_04();
                   shibu_EP = ValuesCh04[1][4];
                   for(i=1;i<ValuesCh04.length;i++) {
@@ -124,7 +132,7 @@
                       break;
                     }
                   }
-                  
+*/                  
                   break;
                 case '02':
                   let ValuesCh05 = getEntryArray_05();
@@ -664,7 +672,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 263
+       処理中です。<br>数秒間お待ちください... 264
       <!-- メンテナンス中です... 199 -->
     </span>
   </body>
