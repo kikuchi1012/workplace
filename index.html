@@ -26,7 +26,7 @@
 //        const source = urlParams.get('from') || 'unknown';
           const source = urlParams.get('from');
 
-          const url = "https://script.google.com/macros/s/AKfycbyRtZArmCOK1bS-9yzUuTImqRcdi8NMNrDzyPwfXrqex2alusgZcbH3i82tO1LjQd9UYw/exec";
+          const url = "https://script.google.com/macros/s/AKfycbyxhxVb8mkMKasx5deN-c37jW01JSGMKTnghFEbRBXjFLvBCqp18B8c7FQdCxibvM6Czw/exec";
 
           const sendData = {
             userId: userId,
@@ -87,9 +87,9 @@
                 mode: "cors"
               });
               const data = await response.json();
-              let shibux = data.shibu;
-              let chikux = data.chiku;
-              let sekininx = data.seki;
+              let statusX = data.status;
+//              let chikux = data.chiku;
+//              let sekininx = data.seki;
               ms00 = data.ms00;
               ms01 = data.ms01;
             }
@@ -761,7 +761,7 @@
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
       <!-- 処理中です。<br>数秒間お待ちください... 283 -->
-       メンテナンス中です... 297
+       メンテナンス中です... 298
     </span>
   </body>
 </html>
