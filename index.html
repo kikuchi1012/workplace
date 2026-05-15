@@ -170,7 +170,7 @@
                   masterEP = await response2.json();
                    shibu_EP = masterEP[0].EP;
                   for(let i=1;i<Object.keys(masterEP).length;i++) {
-                    if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') {
+                    if(masterEP[i].title == '地区（'+shibu0+'支部・第２管区）') {
                       chiku_EP = masterEP[i].EP;
                       break;
                     }
@@ -195,7 +195,7 @@
                   masterEP = await response2.json();
                    shibu_EP = masterEP[0].EP;
                   for(let i=1;i<Object.keys(masterEP).length;i++) {
-                    if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') {
+                    if(masterEP[i].title == '地区（'+shibu0+'支部・第３管区）') {
                       chiku_EP = masterEP[i].EP;
                       break;
                     }
@@ -276,8 +276,8 @@
                   masterEP = await response2.json();
                    shibu_EP = masterEP[0].EP;
                   for(let i=1;i<Object.keys(masterEP).length;i++) {
-                    if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') chiku_EP = masterEP[i].EP;
-                    if(masterEP[i].title == 'ブロック（'+chiku0+'地区・'+shibu0+'支部・第１管区）') block_EP = masterEP[i].EP;
+                    if(masterEP[i].title == '地区（'+shibu0+'支部・第２管区）') chiku_EP = masterEP[i].EP;
+                    if(masterEP[i].title == 'ブロック（'+chiku0+'地区・'+shibu0+'支部・第２管区）') block_EP = masterEP[i].EP;
                     if(masterEP[i].title == '部別') bubetsu_EP = masterEP[i].EP;
                     if(masterEP[i].title == '責任者') sekinin_EP = masterEP[i].EP;
                     if(masterEP[i].title == 'Emailアドレス') Email_EP = masterEP[i].EP;
@@ -303,8 +303,8 @@
                   masterEP = await response2.json();
                    shibu_EP = masterEP[0].EP;
                   for(let i=1;i<Object.keys(masterEP).length;i++) {
-                    if(masterEP[i].title == '地区（'+shibu0+'支部・第１管区）') chiku_EP = masterEP[i].EP;
-                    if(masterEP[i].title == 'ブロック（'+chiku0+'地区・'+shibu0+'支部・第１管区）') block_EP = masterEP[i].EP;
+                    if(masterEP[i].title == '地区（'+shibu0+'支部・第３管区）') chiku_EP = masterEP[i].EP;
+                    if(masterEP[i].title == 'ブロック（'+chiku0+'地区・'+shibu0+'支部・第３管区）') block_EP = masterEP[i].EP;
                     if(masterEP[i].title == '部別') bubetsu_EP = masterEP[i].EP;
                     if(masterEP[i].title == '責任者') sekinin_EP = masterEP[i].EP;
                     if(masterEP[i].title == 'Emailアドレス') Email_EP = masterEP[i].EP;
@@ -773,7 +773,7 @@
 </head> 
   <body style="margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <span style="font-size: 50px; font-weight: bold;">
-       処理中です。<br>数秒間お待ちください... 321
+       処理中です。<br>数秒間お待ちください... 322
       <!-- メンテナンス中です... 309 -->
     </span>
   </body>
