@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LIFF動画切り替え</title>
+  <title>ハナサクカウンター</title>
   <style>
     body { font-family: sans-serif; padding: 20px; text-align: center; }
     .form-group { margin-bottom: 20px; }
@@ -15,7 +16,7 @@
 </head>
 <body>
 
-  <h2>数字を入力して動画を再生 v.002</h2>
+  <h2>ハナサクカウント v.004</h2>
 
   <div class="form-group">
     <!-- 数字入力を受け付ける -->
@@ -32,7 +33,7 @@
   </div>
 
   <!-- LINE LIFF SDK の読み込み -->
-  <script src="https://line-scdn.net"></script>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     // LIFFの初期化（必要に応じて初期化処理を記述）
     liff.init({ liffId: "2009672858-Ns5BWHE9" })
